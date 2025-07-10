@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import {
   Box,
   Container,
@@ -7,20 +7,18 @@ import {
   Stack,
 } from "@mui/material";
 import { GrLanguage } from "react-icons/gr";
-import Login from "./login";
-import Register from "./register";
+
 
 const Home = () => {
-  const [showLogin, setShowLogin] = useState(false);
-  const [showRegister, setShowRegister] = useState(false);
 
   return (
     <>
-      <Box
+      <Stack
         sx={{
           backgroundImage: "url('./blog.jpg')",
           backgroundSize: "cover",
-          minHeight: "100vh",
+          minHeight: "80vh",
+          width:"100%"
           
           
         }}
@@ -30,7 +28,7 @@ const Home = () => {
           direction="row"
           sx={{ justifyContent: "space-between" }}
         >
-          <Box>
+          {/* <Box>
             <Typography
               sx={{
                 fontWeight: "700",
@@ -40,9 +38,9 @@ const Home = () => {
             >
               BlogApp
             </Typography>
-          </Box>
+          </Box> */}
 
-          <Stack
+          {/* <Stack
             component="div"
             direction="row"
             sx={{ gap: "2.5rem", mt: ".4rem" }}
@@ -50,19 +48,13 @@ const Home = () => {
             <Typography sx={{ mt: ".5rem" }}>
               <GrLanguage /> EN
             </Typography>
-            <Button variant="contained" onClick={() => {
-              setShowLogin(true);
-              setShowRegister(false);
-            }}>
+            <Button variant="contained" >
               Log in
             </Button>
-            <Button variant="contained" onClick={() => {
-              setShowRegister(true);
-              setShowLogin(false);
-            }}>
+            <Button variant="contained" href="/register" >
               Sign Up
             </Button>
-          </Stack>
+          </Stack> */}
         </Stack>
 
         <Container sx={{ textAlign: "center", mt: "10%" }}>
@@ -73,11 +65,7 @@ const Home = () => {
           </Typography>
         </Container>
 
-        <Container sx={{ mt: 5 }}>
-          {showLogin && <Login />}
-          {showRegister && <Register />}
-        </Container>
-      </Box>
+      </Stack>
     </>
   );
 };
