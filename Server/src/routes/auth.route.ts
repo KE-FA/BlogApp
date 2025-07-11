@@ -1,11 +1,11 @@
 import verifyUser from '../middlewares/verifyuser';
-import { registerUser } from '../controllers/auth.controller';
+import { registerUser, loginUser } from '../controllers/auth.controller';
 import { Router } from 'express';
 
 const router: Router = Router()
 
 router.post("/register", verifyUser, registerUser);
-router.post("/login",)
+router.post("/login", loginUser)
 
 
 export default router;
