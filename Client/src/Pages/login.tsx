@@ -13,6 +13,7 @@ import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axiosInstance from "../api/axiosInstance";
 import axios from "axios";
+import useUser from "../store/userStore";
 
 interface LoginDetails {
   identifier: string;
@@ -20,8 +21,8 @@ interface LoginDetails {
 }
 
 function Login() {
-  // const {setUser}= useUser();
-  // const navigate = useNavigate();
+  const {setUser}= useUser();
+  const navigate = useNavigate();
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [formError, setFormError] = useState("");
@@ -41,8 +42,8 @@ function Login() {
       }
     },
     onSuccess: (data) => {
-      console.log("Here is the data");
-      console.log(data)
+      setUser(data)
+      navigate("/blogs")
     },
   });
 
