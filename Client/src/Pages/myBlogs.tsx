@@ -3,6 +3,7 @@ import axiosInstance from "../api/axiosInstance";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import Blog from "../components/blog";
 import Loader from "../components/loader";
+import useUser from "../store/userStore";
 
 interface Blog {
   blogId: string;
@@ -20,11 +21,12 @@ interface Blog {
 }
 
 function AllBlogs() {
+  const { user } = useUser();
+
   const { data, isLoading, isError } = useQuery({
     queryKey: ["get-blogs"],
     queryFn: async () => {
       const response = await axiosInstance.get("/api/blogs");
-      console.log(response.data);
       return response.data;
     },
   });
@@ -43,12 +45,16 @@ function AllBlogs() {
     return <Loader message="Loading Please wait ..." />;
   }
 
+  const filteredBlogs = data?.filter(
+    (blog: Blog) => blog.users.id === user?.id && !blog.isDeleted
+  );
+
   return (
     <Box component="section" mt={2}>
       <Grid container justifyContent="center" spacing={3} mt={2.5} px={4}>
-        {data &&
-          data.map((blog: Blog) => (
-            blog.isDeleted === false && <Blog
+        {filteredBlogs && filteredBlogs.length > 0 ? (
+          filteredBlogs.map((blog: Blog) => (
+            <Blog
               key={blog.blogId}
               blogId={blog.blogId}
               title={blog.title}
@@ -60,7 +66,10 @@ function AllBlogs() {
               authorId={blog.users.id}
               createdAt={blog.createdAt}
             />
-          ))}
+          ))
+        ) : (
+          <Typography variant="body1">You don’t have any blogs yet.</Typography>
+        )}
       </Grid>
     </Box>
   );

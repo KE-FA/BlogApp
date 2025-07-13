@@ -21,7 +21,7 @@ interface LoginDetails {
 }
 
 function Login() {
-  const {setUser}= useUser();
+  const { setUser } = useUser();
   const navigate = useNavigate();
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
@@ -30,7 +30,10 @@ function Login() {
   const { isPending, mutate } = useMutation({
     mutationKey: ["login-user"],
     mutationFn: async (loginDetails: LoginDetails) => {
-      const response = await axiosInstance.post("auth/login", loginDetails);
+      const response = await axiosInstance.post(
+        "/api/auth/login",
+        loginDetails
+      );
       // console.log(response.data);
       return response.data;
     },
@@ -42,24 +45,14 @@ function Login() {
       }
     },
     onSuccess: (data) => {
-      setUser(data)
-      navigate("/blogs")
+      setUser(data);
+      navigate("/blogs");
     },
   });
 
   function handleLogin() {
     setFormError("");
     mutate({ identifier, password });
-
-    // setUser({
-
-    //   firstName:"Ramon",
-    //   lastName:"Emard",
-    //   email:"test@gmail.com",
-    //   username:"Vallie_Glover97",
-
-    // });
-    // navigate("/blogs")
   }
 
   return (
@@ -90,7 +83,7 @@ function Login() {
         <Stack spacing={3} mt={2}>
           {formError && <Alert severity="error">{formError}</Alert>}
           <TextField
-            label="Email Address"
+            label="Username or Email Address"
             variant="outlined"
             fullWidth
             value={identifier}

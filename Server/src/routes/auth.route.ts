@@ -1,11 +1,19 @@
-import verifyUser from '../middlewares/verifyuser';
-import { registerUser, loginUser } from '../controllers/auth.controller';
-import { Router } from 'express';
+// import verifyUser from '../middlewares/verifyuser';
+import { registerUser, loginUser } from "../controllers/auth.controller";
+import verifyUserInformation from "../middlewares/verifyUserInfo";
+import checkUserNameAndEmailReuse from "../middlewares/checkEmailAndUserNameReuse";
+import verifyPasswordStrength from "../middlewares/verifyPasswordStrength";
+import { Router } from "express";
 
-const router: Router = Router()
+const router: Router = Router();
 
-router.post("/register", verifyUser, registerUser);
-router.post("/login", loginUser)
-
+router.post(
+  "/register",
+  verifyUserInformation,
+  checkUserNameAndEmailReuse,
+  verifyPasswordStrength,
+  registerUser
+);
+router.post("/login", loginUser);
 
 export default router;

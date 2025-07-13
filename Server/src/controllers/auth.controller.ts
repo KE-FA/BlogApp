@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
-import jwt  from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 const client = new PrismaClient();
 
@@ -29,42 +29,33 @@ export const registerUser = async (req: Request, res: Response) => {
 //Login
 export const loginUser = async (req: Request, res: Response) => {
   try {
-
     const { identifier, password } = req.body;
     // console.log(identifier, password)
 
     const user = await client.users.findFirst({
-    where: {
-        OR: [
-            { userName: identifier },
-            { emailAddress: identifier }
-        ]
-    }
-});
-
+      where: {
+        OR: [{ userName: identifier }, { emailAddress: identifier }],
+      },
+    });
 
     if (!user) {
       res.status(400).json({ message: "Wrong Login Credentials" });
       return;
     }
 
-    const passwordsMatch= await bcrypt.compare(password, user.password);
-     
-    if(!passwordsMatch){
-        res.status(400).json({ message:"Wrong Login Credentials"})
-        return;
+    const passwordsMatch = await bcrypt.compare(password, user.password);
+
+    if (!passwordsMatch) {
+      res.status(400).json({ message: "Wrong Login Credentials" });
+      return;
     }
 
     //Create jwt token
-    const{password:userPassword, ...userDetails} = user
-    const token = jwt.sign(userDetails, process.env.JWT_SECRET!)  
-    res.cookie("authToken", token).json(userDetails)
+    const { password: userPassword, ...userDetails } = user;
+    const token = jwt.sign(userDetails, process.env.JWT_SECRET!);
+    res.cookie("authToken", token).json(userDetails);
     // res.send("Logging the user in");
-
-
   } catch (e) {
     res.status(500).json({ message: "Something went wrong" });
   }
-
-
 };
