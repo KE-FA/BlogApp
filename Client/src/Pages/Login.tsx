@@ -109,7 +109,7 @@ function Login() {
           </Button>
         </Stack>
         <Typography sx={{ mt: "1rem" }}>
-          Don't Have an account?<Link href="/register">Register</Link>
+          Don't Have an account?<Link href="/MyRegister">Register</Link>
         </Typography>
       </Box>
     </Container>
