@@ -34,7 +34,7 @@ function Register() {
     mutationKey: ["register-user"],
     mutationFn: async (newUser: User) => {
       const response = await axios.post(
-        "https://blogapp-nazq.onrender.com/api/auth/register",
+        "import.meta.env.VITE_API_URL/api/auth/register",
         newUser
       );
       console.log(response);
