@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "https://blogapp-nazq.onrender.com",
+  baseURL: "https://blogapp-dgll.onrender.com",
   withCredentials: true,
 });
 
