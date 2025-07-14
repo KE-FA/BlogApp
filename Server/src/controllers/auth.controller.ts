@@ -56,7 +56,7 @@ export const loginUser = async (req: Request, res: Response) => {
     res.cookie("authToken", token, {
       httpOnly: true,
       secure: true,
-      sameSite: "none",
+      sameSite: "none"
     })
     .status(200)
     .json(userDetails);

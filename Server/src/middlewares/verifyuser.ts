@@ -11,7 +11,7 @@ function verifyUser(req: Request, res: Response, next: NextFunction) {
 
   jwt.verify(
     authToken,
-    process.env.JWT_SECRET as string,
+    process.env.JWT_SECRET!,
     (err: VerifyErrors | null, decoded: JwtPayload | string | undefined) => {
       if (err) {
         res.status(401).json({ message: "Unauthorized, Please login" });
