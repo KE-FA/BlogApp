@@ -13,7 +13,7 @@ import NewBlog from "./Pages/Newblog";
 import AllBlogs from "./Pages/MyAllblogs";
 import UpdateBlog from "./Pages/MyUpdateblog";
 import Profile from "./Pages/Profile";
-import MyBlogs from "./Pages/Mybl0gs";
+import MyBlogs from "./Pages/Blogs";
 import BlogDetails from "./Pages/Blogdetails";
 import { Toaster } from "react-hot-toast";
 
