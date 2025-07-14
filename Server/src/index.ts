@@ -10,8 +10,8 @@ const app: Express = express();
 
 app.use(
   cors({
-    origin: "https://blog-app-rose-xi.vercel.app/",
-    credentials: true,
+    origin: "*",
+    
     // methods:["POST", "GET", "PUT", "PATCH", "DELETE"]
   })
 );
