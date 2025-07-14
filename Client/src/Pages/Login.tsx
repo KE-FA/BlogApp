@@ -5,10 +5,9 @@ import {
   TextField,
   Typography,
   Stack,
-  Link,
   Alert,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axiosInstance from "../api/axiosInstance";
@@ -109,7 +108,7 @@ function Login() {
           </Button>
         </Stack>
         <Typography sx={{ mt: "1rem" }}>
-          Don't Have an account?<Link href="/MyRegister">Register</Link>
+          Don't Have an account?<Link to="/register">Register</Link>
         </Typography>
       </Box>
     </Container>

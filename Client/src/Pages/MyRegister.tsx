@@ -6,11 +6,11 @@ import {
   Box,
   Typography,
   Paper,
-  Link,
   Alert,
 } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
 interface User {
   firstName: string;
   lastName: string;
@@ -143,9 +143,8 @@ function Register() {
         </Button>
         <Typography sx={{ mt: "9px" }}>
           Already Have an account?
-          <Link underline="hover" href="/Login">
-            Login
-          </Link>
+          <Link to="/login">Login</Link>
+
         </Typography>
       </Paper>
     </Box>
