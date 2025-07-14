@@ -34,7 +34,7 @@ function Register() {
     mutationKey: ["register-user"],
     mutationFn: async (newUser: User) => {
       const response = await axios.post(
-        "http://localhost:4000/api/auth/register",
+        "https://blogapp-sa7q.onrender.com/api/auth/register",
         newUser
       );
       console.log(response);
