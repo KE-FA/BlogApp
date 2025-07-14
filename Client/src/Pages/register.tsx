@@ -143,7 +143,7 @@ function Register() {
         </Button>
         <Typography sx={{ mt: "9px" }}>
           Already Have an account?
-          <Link underline="hover" href="/login">
+          <Link underline="hover" href="./login">
             Login
           </Link>
         </Typography>
