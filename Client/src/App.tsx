@@ -4,9 +4,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Protected from "./components/Protected";
+import Header from "./components/MyHeader";
+import Footer from "./components/MyFooter";
+import Protected from "./components/MyProtected";
 
 
 import NewBlog from "./Pages/Newblog";
