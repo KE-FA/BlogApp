@@ -63,7 +63,7 @@ export const getBlog = async (req: Request, res: Response) => {
     }
     res.status(200).json(blog);
   } catch (e) {
-    res.status(500).json({ message: "Sonething Went Wrong" });
+    res.status(500).json({ message: "Something Went Wrong" });
   }
 };
 
