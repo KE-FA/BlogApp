@@ -53,7 +53,13 @@ export const loginUser = async (req: Request, res: Response) => {
     //Create jwt token
     const { password: userPassword, ...userDetails } = user;
     const token = jwt.sign(userDetails, process.env.JWT_SECRET!);
-    res.cookie("authToken", token).json(userDetails);
+    res.cookie("authToken", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+    })
+    .status(200)
+    .json(userDetails);
     // res.send("Logging the user in");
   } catch (e) {
     res.status(500).json({ message: "Something went wrong" });
