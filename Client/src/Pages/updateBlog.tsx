@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import axiosInstance from "../api/axiosInstance";
 import { useParams } from "react-router-dom";
-import Loader from "../components/MyLoader";
+import Loader from "../components/Loader";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 

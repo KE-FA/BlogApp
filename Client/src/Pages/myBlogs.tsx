@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import axiosInstance from "../api/axiosInstance";
 import { Box, Grid, Stack, Typography } from "@mui/material";
-import Blog from "../components/MyBlog";
-import Loader from "../components/MyLoader";
+import Blog from "../components/Blog";
+import Loader from "../components/Loader";
 import useUser from "../store/userStore";
 
 interface Blog {
