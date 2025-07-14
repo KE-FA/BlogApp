@@ -1,20 +1,20 @@
 import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import Home from "./Pages/home";
-import Login from "./Pages/login";
-import Register from "./Pages/register";
-import Header from "./components/header";
-import Footer from "./components/footer";
-import Protected from "./components/protected";
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Protected from "./components/Protected";
 
 
-import NewBlog from "./Pages/newBlog";
-import AllBlogs from "./Pages/allBlogs";
+import NewBlog from "./Pages/Newblog";
+import AllBlogs from "./Pages/Allblogs";
 import UpdateBlog from "./Pages/updateBlog";
-import Profile from "./Pages/profile";
-import MyBlogs from "./Pages/myBlogs";
-import BlogDetails from "./Pages/blogDetails";
+import Profile from "./Pages/Profile";
+import MyBlogs from "./Pages/Myblogs";
+import BlogDetails from "./Pages/Blogdetails";
 import { Toaster } from "react-hot-toast";
 
 const client = new QueryClient();
