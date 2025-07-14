@@ -11,7 +11,7 @@ import Protected from "./components/Protected";
 
 import NewBlog from "./Pages/Newblog";
 import AllBlogs from "./Pages/Allblogs";
-import UpdateBlog from "./Pages/updateBlog";
+import UpdateBlog from "./Pages/Updateblog";
 import Profile from "./Pages/Profile";
 import MyBlogs from "./Pages/Myblogs";
 import BlogDetails from "./Pages/Blogdetails";
